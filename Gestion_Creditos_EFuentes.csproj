@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{31C56902-F513-42EC-93AA-7D7B3DB4F01E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Gestion_Creditos_EFuentes</RootNamespace>
+    <AssemblyName>Gestion_Creditos_EFuentes</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\Auth.cs" />
+    <Compile Include="Clases\BootStrapper.cs" />
+    <Compile Include="Clases\ConexionAccess.cs" />
+    <Compile Include="Clases\Configuracion.cs" />
+    <Compile Include="Clases\DB.cs" />
+    <Compile Include="Clases\DBAcces.cs" />
+    <Compile Include="Clases\Entorno.cs" />
+    <Compile Include="Clases\Helpers.cs" />
+    <Compile Include="Clases\SQLServer.cs" />
+    <Compile Include="Clases\Tema_Colores.cs" />
+    <Compile Include="Formularios\Avales\FrmAvales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Avales\FrmAvales.Designer.cs">
+      <DependentUpon>FrmAvales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Avales\FrmBuscarAval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Avales\FrmBuscarAval.Designer.cs">
+      <DependentUpon>FrmBuscarAval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Avales\FrmEditElimAvales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Avales\FrmEditElimAvales.Designer.cs">
+      <DependentUpon>FrmEditElimAvales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Avales\FrmVerElim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Avales\FrmVerElim.Designer.cs">
+      <DependentUpon>FrmVerElim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FrmBuscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FrmBuscarCliente.Designer.cs">
+      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FrmEditarElimClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FrmEditarElimClientes.Designer.cs">
+      <DependentUpon>FrmEditarElimClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FrmListarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FrmListarClientes.Designer.cs">
+      <DependentUpon>FrmListarClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FrmRegistrarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FrmRegistrarClientes.Designer.cs">
+      <DependentUpon>FrmRegistrarClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FrmVerClienteEliminado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FrmVerClienteEliminado.Designer.cs">
+      <DependentUpon>FrmVerClienteEliminado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FrmVerInfoClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FrmVerInfoClientes.Designer.cs">
+      <DependentUpon>FrmVerInfoClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Documentos_Cliente\FrmBuscarElimRequi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Documentos_Cliente\FrmBuscarElimRequi.Designer.cs">
+      <DependentUpon>FrmBuscarElimRequi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Documentos_Cliente\FrmBuscarRequisito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Documentos_Cliente\FrmBuscarRequisito.Designer.cs">
+      <DependentUpon>FrmBuscarRequisito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Documentos_Cliente\FrmRegistrarRequisitos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Documentos_Cliente\FrmRegistrarRequisitos.Designer.cs">
+      <DependentUpon>FrmRegistrarRequisitos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Documentos_Cliente\FrmRequisitos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Documentos_Cliente\FrmRequisitos.Designer.cs">
+      <DependentUpon>FrmRequisitos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Documentos_Cliente\FrmSubirDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Documentos_Cliente\FrmSubirDoc.Designer.cs">
+      <DependentUpon>FrmSubirDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Server\FrmServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Server\FrmServer.Designer.cs">
+      <DependentUpon>FrmServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Roles\FrmBuscarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Roles\FrmBuscarRol.Designer.cs">
+      <DependentUpon>FrmBuscarRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Roles\FrmRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Roles\FrmRoles.Designer.cs">
+      <DependentUpon>FrmRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Roles\FrmVerRolElim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Roles\FrmVerRolElim.Designer.cs">
+      <DependentUpon>FrmVerRolElim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmBuscarDepto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmBuscarDepto.Designer.cs">
+      <DependentUpon>FrmBuscarDepto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmBuscarMuni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmBuscarMuni.Designer.cs">
+      <DependentUpon>FrmBuscarMuni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmBuscarZona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmBuscarZona.Designer.cs">
+      <DependentUpon>FrmBuscarZona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmDepartamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmDepartamentos.Designer.cs">
+      <DependentUpon>FrmDepartamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmInfoSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmInfoSistema.Designer.cs">
+      <DependentUpon>FrmInfoSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmMunicipio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmMunicipio.Designer.cs">
+      <DependentUpon>FrmMunicipio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmVerDeptoelim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmVerDeptoelim.Designer.cs">
+      <DependentUpon>FrmVerDeptoelim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmVerMunEli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmVerMunEli.Designer.cs">
+      <DependentUpon>FrmVerMunEli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmVerZonElim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmVerZonElim.Designer.cs">
+      <DependentUpon>FrmVerZonElim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmZonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Sistema\FrmZonas.Designer.cs">
+      <DependentUpon>FrmZonas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmActualizarPermisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmActualizarPermisos.Designer.cs">
+      <DependentUpon>FrmActualizarPermisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmEditarElim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmEditarElim.Designer.cs">
+      <DependentUpon>FrmEditarElim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmListarUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmListarUsers.Designer.cs">
+      <DependentUpon>FrmListarUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmRecuperarClave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmRecuperarClave.Designer.cs">
+      <DependentUpon>FrmRecuperarClave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmResetClave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmResetClave.Designer.cs">
+      <DependentUpon>FrmResetClave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmVerEliminados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Usuarios\FrmVerEliminados.Designer.cs">
+      <DependentUpon>FrmVerEliminados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\RptPrueba.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptPrueba.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Formularios\Avales\FrmAvales.resx">
+      <DependentUpon>FrmAvales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Avales\FrmBuscarAval.resx">
+      <DependentUpon>FrmBuscarAval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Avales\FrmEditElimAvales.resx">
+      <DependentUpon>FrmEditElimAvales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Avales\FrmVerElim.resx">
+      <DependentUpon>FrmVerElim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\FrmBuscarCliente.resx">
+      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\FrmEditarElimClientes.resx">
+      <DependentUpon>FrmEditarElimClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\FrmListarClientes.resx">
+      <DependentUpon>FrmListarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\FrmRegistrarClientes.resx">
+      <DependentUpon>FrmRegistrarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\FrmVerClienteEliminado.resx">
+      <DependentUpon>FrmVerClienteEliminado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\FrmVerInfoClientes.resx">
+      <DependentUpon>FrmVerInfoClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Documentos_Cliente\FrmBuscarElimRequi.resx">
+      <DependentUpon>FrmBuscarElimRequi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Documentos_Cliente\FrmBuscarRequisito.resx">
+      <DependentUpon>FrmBuscarRequisito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Documentos_Cliente\FrmRegistrarRequisitos.resx">
+      <DependentUpon>FrmRegistrarRequisitos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Documentos_Cliente\FrmRequisitos.resx">
+      <DependentUpon>FrmRequisitos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Documentos_Cliente\FrmSubirDoc.resx">
+      <DependentUpon>FrmSubirDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Server\FrmServer.resx">
+      <DependentUpon>FrmServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Roles\FrmBuscarRol.resx">
+      <DependentUpon>FrmBuscarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Roles\FrmRoles.resx">
+      <DependentUpon>FrmRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Roles\FrmVerRolElim.resx">
+      <DependentUpon>FrmVerRolElim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Sistema\FrmBuscarDepto.resx">
+      <DependentUpon>FrmBuscarDepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Sistema\FrmBuscarMuni.resx">
+      <DependentUpon>FrmBuscarMuni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Sistema\FrmBuscarZona.resx">
+      <DependentUpon>FrmBuscarZona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Sistema\FrmDepartamentos.resx">
+      <DependentUpon>FrmDepartamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Sistema\FrmInfoSistema.resx">
+      <DependentUpon>FrmInfoSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Sistema\FrmMunicipio.resx">
+      <DependentUpon>FrmMunicipio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Sistema\FrmVerDeptoelim.resx">
+      <DependentUpon>FrmVerDeptoelim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Sistema\FrmVerMunEli.resx">
+      <DependentUpon>FrmVerMunEli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Sistema\FrmVerZonElim.resx">
+      <DependentUpon>FrmVerZonElim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Sistema\FrmZonas.resx">
+      <DependentUpon>FrmZonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuarios\FrmActualizarPermisos.resx">
+      <DependentUpon>FrmActualizarPermisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuarios\FrmEditarElim.resx">
+      <DependentUpon>FrmEditarElim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuarios\FrmListarUsers.resx">
+      <DependentUpon>FrmListarUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuarios\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuarios\FrmRecuperarClave.resx">
+      <DependentUpon>FrmRecuperarClave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuarios\FrmResetClave.resx">
+      <DependentUpon>FrmResetClave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuarios\FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuarios\FrmVerEliminados.resx">
+      <DependentUpon>FrmVerEliminados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Reportes\RptPrueba.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptPrueba.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Graficos\" />
+    <Folder Include="Iconos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
